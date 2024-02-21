@@ -2,7 +2,23 @@ package lesson_3;
 
 import java.util.Scanner;
 
-public class Homework2 {
+public class Homework2 extends Shape {
+
+    @Override
+    public double perimetrOfSquare(int a) {
+        return a * 4;
+    }
+
+    @Override
+    public double perimetrOfCircle(int r) {
+        return 2 * 3.14 * r;
+    }
+
+    @Override
+    public double perimetrOfRectangle(int a, int b) {
+        return 2 * ( a + b);
+    }
+
     public static void main(String[] args) {
         // 1. Написать мини-справочник по геометрии. Программа должна считывать из консоли с клавиатуры
         // фигуру - прямоугольник, квадрат или круг. Для введённой фигуры вывести в консоль формулы
