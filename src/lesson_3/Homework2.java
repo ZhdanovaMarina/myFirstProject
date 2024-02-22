@@ -1,8 +1,10 @@
 package lesson_3;
 
+import java.awt.*;
 import java.util.Scanner;
 
 public class Homework2 extends Shape {
+
 
     @Override
     public double perimetrOfSquare(int a) {

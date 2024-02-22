@@ -1,14 +1,10 @@
 package lesson_3;
 
-public class Shape {
+public abstract class Shape {
 
-    public double perimetrOfSquare(int a) {
-        return 0;
-    }
-    public double perimetrOfCircle(int r) {
-        return 0;
-    }
-    public double perimetrOfRectangle(int a, int b) {
-        return 0;
-    }
+    public abstract double perimetrOfSquare(int a);
+
+    public abstract double perimetrOfCircle(int r);
+
+    public abstract double perimetrOfRectangle(int a, int b);
 }
