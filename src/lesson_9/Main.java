@@ -12,5 +12,12 @@ public class Main {
 
         Oval oval = new Oval(4,5);
         oval.printPerimetr();
+
+        Square square = new Square(5);
+        square.printPerimetr();
+
+        Rectangle rectangle = new Rectangle(2,4);
+        rectangle.printPerimetr();
+
     }
 }
