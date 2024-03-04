@@ -13,18 +13,18 @@ public class Main4 {
 
         CollectionUtils utils = new CollectionUtilsImpl();
         Collection<Integer> union = utils.union(listA, listB);          //
-        System.out.println(union);
+        System.out.println("Объединение двух коллекций с дубликатами: " + union);
         System.out.println("---------------------------------");
 
-        System.out.println(utils.unionWithoutDuplicate(listA, listB)); //
+        System.out.println("Объединение двух коллекций без дубликатов: " + utils.unionWithoutDuplicate(listA, listB)); //
         System.out.println("---------------------------------");
 
-        System.out.println(utils.intersectionWithoutDuplicate(listA, listB)); //
+        System.out.println("Пересечение двух коллекций без дубликатов: " + utils.intersectionWithoutDuplicate(listA, listB)); //
         System.out.println("---------------------------------");
 
-        System.out.println(utils.intersection(listA,listB));
+        System.out.println("Пересечение двух коллекций с дубликатами: " + utils.intersection(listA,listB));
         System.out.println("---------------------------------");
 
-        System.out.println(utils.difference(listA, listB));
+        System.out.println("Разность двух коллекций: " + utils.difference(listA, listB));
     }
 }
