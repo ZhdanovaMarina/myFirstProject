@@ -1,6 +1,6 @@
 package lesson_10.task2;
 
-public class Matrix implements IMatrix{
+public class Matrix implements IMatrix {
 
     private double[][] matrix;
 
@@ -9,7 +9,7 @@ public class Matrix implements IMatrix{
     }
 
     public Matrix(int rows, int columns) {
-        if ((rows < 1)|| columns<1){
+        if ((rows < 1) || columns < 1) {
             System.out.println("Переданные параметры некорректны, матрица будет иметь значение 1");
             matrix = new double[DEFAULT_MATRIX_SIZE][DEFAULT_MATRIX_SIZE];
             return;
@@ -17,15 +17,14 @@ public class Matrix implements IMatrix{
         matrix = new double[rows][columns];
     }
 
-
-
     @Override
-    public int getRows() {
+    public int getRows() { // количество строк матрицы
         return matrix.length;
     }
 
+
     @Override
-    public int getColumns() {
+    public int getColumns() { // количество колонок матрицы
         return matrix[0].length;
     }
 
@@ -41,12 +40,42 @@ public class Matrix implements IMatrix{
 
     @Override
     public IMatrix add(IMatrix otherMatrix) throws IllegalArgumentException, NullPointerException {
-        return null;
+        if (this.getRows() != otherMatrix.getRows()) {
+            System.out.println("Не совпадает количество строк!");
+            return null;
+        }
+        if (this.getColumns() != otherMatrix.getColumns()) {
+            System.out.println("Не совпадает количество колонок!");
+            return null;
+        }
+
+        Matrix result = new Matrix(getRows(), getColumns());
+        for (int i = 0; i < getRows(); i++) {
+            for (int j = 0; j < getColumns(); j++) {
+                result.setValueAt(i, j, getValueAt(i, j) + otherMatrix.getValueAt(i, j));
+            }
+        }
+        return result;
     }
 
     @Override
     public IMatrix sub(IMatrix otherMatrix) throws IllegalArgumentException, NullPointerException {
-        return null;
+        if (this.getRows() != otherMatrix.getRows()) {
+            System.out.println("Не совпадает количество строк!");
+            return null;
+        }
+        if (this.getColumns() != otherMatrix.getColumns()) {
+            System.out.println("Не совпадает количество колонок!");
+            return null;
+        }
+
+        Matrix result = new Matrix(getRows(), getColumns());
+        for (int i = 0; i < getRows(); i++) {
+            for (int j = 0; j < getColumns(); j++) {
+                result.setValueAt(i, j, getValueAt(i, j) - otherMatrix.getValueAt(i, j));
+            }
+        }
+        return result;
     }
 
     @Override
@@ -56,7 +85,14 @@ public class Matrix implements IMatrix{
 
     @Override
     public IMatrix mul(double value) {
-        return null;
+
+        Matrix result = new Matrix(getRows(), getColumns());
+        for (int i = 0; i < getRows(); i++){
+            for (int j =0; j < getColumns(); j++){
+                result.setValueAt(i, j, getValueAt(i, j) * value);
+            }
+        }
+        return result;
     }
 
     @Override
@@ -75,7 +111,7 @@ public class Matrix implements IMatrix{
     }
 
     @Override
-    public boolean isNullMatrix() {
+    public boolean isNullMatrix() { // является ли текущая матрица нулевой
         return false;
     }
 
@@ -85,8 +121,13 @@ public class Matrix implements IMatrix{
     }
 
     @Override
-    public boolean isSquareMatrix() {
-        return false;
+    public boolean isSquareMatrix() { // является ли текущая матрица квадратной
+
+        if (getRows() == getColumns()) {
+            System.out.println("Эта Матрица является квадратной");
+        } else {
+            System.out.println("Эта Матрица не является квадратной");
+        }   return false;
     }
 
     @Override
@@ -96,7 +137,7 @@ public class Matrix implements IMatrix{
                 System.out.print(aDouble + "   ");
             }
             System.out.println();
-            }
         }
     }
+}
 

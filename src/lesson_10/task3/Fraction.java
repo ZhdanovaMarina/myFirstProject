@@ -33,7 +33,7 @@ public class Fraction implements IFraction {
 
     @Override
     public String toString() {
-        return String.format("Простая дробь c числителем %d и знаменателем %d" + numerator, denomerator);
+        return String.format("Простая дробь c числителем %d и знаменателем %d", numerator, denomerator);
     }
 
     @Override

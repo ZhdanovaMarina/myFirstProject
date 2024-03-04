@@ -3,7 +3,7 @@ package lesson_10.task3;
 public class FractionCalc implements IFractionCalc {
     @Override
     public Fraction sum(IFraction fraction, IFraction fraction1) {
-        return null;
+        return new Fraction(fraction.getNumerator() + fraction1.getNumerator(), fraction.getDenomerator() + fraction1.getDenomerator());
     }
 
     @Override
@@ -13,7 +13,7 @@ public class FractionCalc implements IFractionCalc {
 
     @Override
     public Fraction mul(IFraction fraction, IFraction fraction1) {
-        return new Fraction(fraction.getNumerator()*fraction1.getNumerator(), fraction.getDenomerator() * fraction1.getDenomerator());
+        return new Fraction(fraction.getNumerator() * fraction1.getNumerator(), fraction.getDenomerator() * fraction1.getDenomerator());
     }
 
     @Override

@@ -7,5 +7,6 @@ public class Main {
 
         IFractionCalc ifractionCalc = new FractionCalc();
         System.out.println(ifractionCalc.mul(fraction, fraction1));
+        System.out.println(ifractionCalc.sum(fraction, fraction1));
     }
 }
