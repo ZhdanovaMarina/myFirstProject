@@ -23,10 +23,21 @@ public class Main {
         coins.add(coin5);
         coins.add(coin6);
 
-       System.out.println("Лист до сортировки: ");
+        System.out.println("Лист до сортировки: ");
         for (Coin coin : coins) {
             System.out.println(coin);
         }
+
+
+        // Сортировка по году
+        CoinSortUtils.printCoinByYearAsc(coins);
+
+
+        // Сортировка по диаметру
+        CoinSortUtils.printCoinByDiameterAsc(coins);
+
+
+
 
         /* List<Coin> coinList = new ArrayList<>(coins);
         for (Coin coin : coinList) {
@@ -39,8 +50,8 @@ public class Main {
             System.out.println(coin);
         }*/
 
-       // CoinSortUtils.printCoinByMetallAsc(coins);
-       // CoinSortUtils.printCoinByMetallDesc(coins);
+        // CoinSortUtils.printCoinByMetallAsc(coins);
+        //CoinSortUtils.printCoinByMetallDesc(coins);
 
 
     }
