@@ -21,14 +21,14 @@ public class CoinSortUtils {
         TreeSet<Coin> sortedCoin = new TreeSet<>(new Comparator<Coin>() {
             @Override
             public int compare(Coin firstCoin, Coin secondCoin) {
-                if (! firstCoin.getMetal().equals(secondCoin.getMetal())){
+                if (!firstCoin.getMetal().equals(secondCoin.getMetal())) {
                     return (-1) * firstCoin.getMetal().compareTo(secondCoin.getMetal());
                 }
 
-                if (firstCoin.getNominal() != secondCoin.getNominal()){
+                if (firstCoin.getNominal() != secondCoin.getNominal()) {
                     return firstCoin.getNominal() - secondCoin.getNominal();
                 }
-                if (firstCoin.getYear() != secondCoin.getYear()){
+                if (firstCoin.getYear() != secondCoin.getYear()) {
                     return firstCoin.getYear() - secondCoin.getYear();
                 }
                 return Double.compare(firstCoin.getDiameter(), secondCoin.getDiameter());
@@ -43,6 +43,56 @@ public class CoinSortUtils {
         }
 
 
+    }
+
+    public static void printCoinByYearAsc(Set<Coin> coins) {
+        TreeSet<Coin> sortedCoin = new TreeSet<>(new Comparator<Coin>() {
+            @Override
+            public int compare(Coin firstCoin, Coin secondCoin) {
+                if (firstCoin.getYear() != secondCoin.getYear()) {
+                    return firstCoin.getYear() - secondCoin.getYear();
+                }
+                if (firstCoin.getMetal() != secondCoin.getMetal()) {
+                    return Double.compare(firstCoin.getDiameter(), secondCoin.getDiameter());
+                }
+                if (firstCoin.getNominal() != secondCoin.getNominal()) {
+                    return firstCoin.getNominal() - secondCoin.getNominal();
+                }
+                return Double.compare(firstCoin.getDiameter(), secondCoin.getDiameter());
+            }
+        });
+        sortedCoin.addAll(coins);
+        System.out.println();
+        System.out.println("Коллекция после сортировки по году, в порядке возрастания ");
+
+        for (Coin coin : sortedCoin) {
+            System.out.println(coin);
+        }
+    }
+
+    public static void printCoinByDiameterAsc(Set<Coin> coins) {
+        TreeSet<Coin> sortedCoin = new TreeSet<>(new Comparator<Coin>() {
+            @Override
+            public int compare(Coin firstCoin, Coin secondCoin) {
+                if (firstCoin.getDiameter() != secondCoin.getDiameter())
+                    return Double.compare(firstCoin.getDiameter(), secondCoin.getDiameter());
+
+                if ( firstCoin.getYear() != secondCoin.getYear()) {
+                    return firstCoin.getYear() - secondCoin.getYear();
+                }
+                if (firstCoin.getNominal() != secondCoin.getNominal()) {
+                    return firstCoin.getNominal() - secondCoin.getNominal();
+                }
+                return firstCoin.getMetal().compareTo(secondCoin.getMetal());
+            }
+        });
+        sortedCoin.addAll(coins);
+        System.out.println();
+        System.out.println("Коллекция после сортировки по диаметру, в порядке возрастания ");
+
+        for (Coin coin : sortedCoin) {
+            System.out.println(coin);
+        }
     }
 
 
