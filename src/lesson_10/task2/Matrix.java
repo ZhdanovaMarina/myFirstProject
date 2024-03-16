@@ -30,6 +30,9 @@ public class Matrix implements IMatrix {
 
     @Override
     public double getValueAt(int rowIndex, int colIndex) throws IndexOutOfBoundsException {
+        if (matrix.length > rowIndex){
+            throw new IndexOutOfBoundsException();
+        }
         return matrix[rowIndex][colIndex];
     }
 
