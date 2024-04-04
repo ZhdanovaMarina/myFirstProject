@@ -1,5 +1,7 @@
 package lesson_19.task4;
 
+import java.util.Objects;
+
 public class Student {
 
     private String name;
@@ -45,5 +47,18 @@ public class Student {
                 ", averageRate=" + averageRate +
                 ", course=" + course +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Student student = (Student) o;
+        return age == student.age && Double.compare(averageRate, student.averageRate) == 0 && course == student.course && Objects.equals(name, student.name) && Objects.equals(surname, student.surname);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, surname, age, averageRate, course);
     }
 }
